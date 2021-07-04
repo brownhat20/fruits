@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruits | Responsive Website Landing Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="bg"></div>
+      <header>
+        <a href="#" class="logo">Fruits</a>
+        <div class="toggle"></div>
+        <ul class="navigation">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">What's New</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </header>
+      <div class="content">
+        <div class="textBox">
+          <h2>Eat Fresh Everyday</h2>
+          <p>
+            Our mother Earth has plenty of fruits, which are available in all shapes,
+            sizes and colours. Summers or winters, there is always a wide
+            variety of fruits to choose from. There is also a great variety in
+            their colours and in the way they smell and taste. Apple, mangoes, watermelon,
+            papayas, pineapples, dragon fruits, bananas, grapes, we get them all
+            here!
+          </p>
+          <a href="#">Learn More</a>
+        </div>
+        <div class="imgBox">
+          <img src="images/apple.png" class="fruits" />
+        </div>
+      </div>
+      <ul class="thumb">
+        <li data-text="Apple" class="active">
+          <img
+            src="images/apple.png"
+            onclick="imgSlider('images/apple.png');changeBgColor('#fc4a55')"
+          />
+        </li>
+        <li data-text="Mango">
+          <img
+            src="images/mango.png"
+            onclick="imgSlider('images/mango.png');changeBgColor('#ffcc02')"
+          />
+        </li>
+        <li data-text="Watermelon">
+          <img
+            src="images/watermelon.png"
+            onclick="imgSlider('images/watermelon.png');changeBgColor('#92ba3c')"
+          />
+        </li>
+        <li data-text="Dragon Fruits">
+          <img
+            src="images/dragonFruits.png"
+            onclick="imgSlider('images/dragonFruits.png');changeBgColor('#fb6cb2')"
+          />
+        </li>
+        <li data-text="Pineapple">
+          <img
+            src="images/pineApple.png"
+            onclick="imgSlider('images/pineApple.png');changeBgColor('#ffb42b')"
+          />
+        </li>
+      </ul>
+      <ul class="sci">
+        <li>
+          <a href="#"><img src="images/facebook.png" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/twitter.png" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/instagram.png" alt="" /></a>
+        </li>
+      </ul>
+    </section>
+    <script>
+      //toggleMenu
+      let menuToggle = document.querySelector(".toggle");
+      let navigation = document.querySelector(".navigation");
+      menuToggle.onclick = function () {
+        menuToggle.classList.toggle("active");
+        navigation.classList.toggle("active");
+      };
+
+      //change image on click
+      function imgSlider(anything) {
+        document.querySelector(".fruits").src = anything;
+      }
+
+      //change the background color
+      function changeBgColor(color) {
+        const bg = document.querySelector(".bg");
+        bg.style.background = color;
+      }
+
+      // add active class in the selected thumbnails
+      let el = document.querySelectorAll(".thumb li");
+      for (let i = 0; i < el.length; i++) {
+        el[i].onclick = function () {
+          var c = 0;
+          while (c < el.length) {
+            el[c++].className = "check";
+          }
+          el[i].className = "check active";
+        };
+      }
+    </script>
+  </body>
+</html>
