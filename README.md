@@ -1,0 +1,2 @@
+# fruits
+Adaptive Website
